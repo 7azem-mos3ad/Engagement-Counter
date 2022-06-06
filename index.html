@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engagement Counter</title>
+    <style>
+      @font-face {
+        font-family: "NeoMedium";
+        font-style: normal;
+        font-weight: normal;
+        src: local("NeoMedium"),
+          url("assets/fonts/NeoSansArabicMedium.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "NeoBold";
+        font-style: normal;
+        font-weight: normal;
+        src: local("NeoBold"),
+          url("assets/fonts/NeoSansArabicBold.woff") format("woff");
+      }
+
+      h1 {
+        text-transform: capitalize;
+        font-size: 35px;
+        text-align: center;
+        font-family: "NeoBold", sans-serif;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 0 5rem;
+        width: 100%;
+      }
+
+      section {
+        padding: 0 2rem;
+      }
+
+      figure {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      p {
+        text-align: center;
+        font-size: 35px;
+        font-family: "NeoMedium", sans-serif;
+      }
+
+      @media screen and (min-width: 768px) {
+        section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        h1 {
+          font-size: 80px;
+        }
+        p {
+          font-size: 80px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>Engagement counter</h1>
+      </header>
+
+      <section>
+        <figure>
+          <img id="myImg" src="" alt="" />
+        </figure>
+
+        <div>
+          <p id="demo"></p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Set the date we're counting down to
+      var countDownDate = new Date("Jul 31, 2022 00:00:00").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+
+      let theImg = document.getElementById("myImg");
+
+      myImgs = [
+        "https://c.tenor.com/DIi7bK1vU5MAAAAC/love.gif",
+        "https://c.tenor.com/U45Q8YaJzBUAAAAC/moti-hearts.gif",
+        "https://c.tenor.com/zqbTB_um-dkAAAAd/heart-shape-heart-sign.gif",
+        "https://c.tenor.com/lnP_tav2DVEAAAAC/love-cute.gif",
+        "https://c.tenor.com/s4hTtVHWLtcAAAAC/panda-heart.gif",
+        "https://c.tenor.com/CJ5iP8EB_LYAAAAC/nanip50.gif",
+        "https://c.tenor.com/NLXVcGLyy7sAAAAC/love-heart.gif",
+        "https://c.tenor.com/4VYMkT9lLuYAAAAC/kawaii-love.gif",
+        "https://c.tenor.com/SL4WDwB2hKMAAAAC/love-heart.gif",
+        "https://c.tenor.com/cSFiLm4EyCAAAAAC/tom-and-jerry-heart-eyes.gif",
+        "https://c.tenor.com/-fz3KuEQi18AAAAC/bts-love.gif",
+        "https://c.tenor.com/3mHT2bEomRgAAAAC/hearts-love.gif",
+        "https://c.tenor.com/Xh0AMYBVWyMAAAAC/bear_heart_painting-heart.gif",
+        "https://c.tenor.com/S5rMzaZE_vIAAAAC/lots-of-love-cute.gif",
+        "https://c.tenor.com/rHF34pA8TD8AAAAC/milk-and-mocha-milkbear.gif",
+        "https://c.tenor.com/ikzpIR9NqFMAAAAC/cony-hearts.gif",
+        "https://c.tenor.com/i1rsgMyOFgcAAAAd/cat-cat-love.gif",
+        "https://c.tenor.com/C4CkIJmxNk4AAAAC/heart-love.gif",
+      ];
+
+      function changeImg(theImg, myImgs) {
+        "use strict";
+        let myRandomNum = Math.floor(Math.random() * myImgs.length);
+        theImg.src = myImgs[myRandomNum];
+      }
+
+      changeImg(theImg, myImgs);
+    </script>
+  </body>
+</html>
